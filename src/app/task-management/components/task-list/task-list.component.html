@@ -1,0 +1,36 @@
+  @if (tasks.length) {
+      <div class="container">
+        <h2 class="my-4">Task List</h2>
+        <div class="list-group">
+          <div *ngFor="let task of tasks; let i=index" class="list-group-item d-flex justify-content-between align-items-center">
+            <div [ngClass]="{'completed': task.completed}" (dblclick)="editMode[i] = true">
+              <ng-container *ngIf="!editMode[i]; else editTaskTemplate">
+                <h5>{{ task.title }}</h5>
+                <p>{{ task.description }}</p>
+                <button class="btn btn-sm btn-outline-warning mr-2" (click)="editMode[i] = true">
+                    <i class="fas fa-edit"></i>
+                  </button>
+              </ng-container>
+              <ng-template #editTaskTemplate>
+                <div class="input-group">
+                  <input type="text" class="form-control" [(ngModel)]="task.title">
+                  <input type="text" class="form-control" [(ngModel)]="task.description">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-primary" (click)="updateTask(i, task); editMode[i] = false">Save</button>
+                    <button class="btn btn-outline-secondary" (click)="editMode[i] = false">Cancel</button>
+                  </div>
+                </div>
+              </ng-template>
+            </div>
+            <div>
+              <button class="btn btn-sm btn-outline-primary mr-2" (click)="toggleTaskCompletion(i)">
+                <i class="fas" [ngClass]="{'fa-check-circle': !task.completed, 'fa-undo': task.completed}"></i>
+              </button>
+              <button class="btn btn-sm btn-outline-danger" (click)="deleteTask(i)">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+  }

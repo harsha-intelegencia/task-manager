@@ -1,0 +1,8 @@
+  <div class="card" [ngClass]="{'completed': task?.completed}">
+    <div class="card-body">
+      <h5 class="card-title">{{ task?.title }}</h5>
+      <p class="card-text">{{ task?.description }}</p>
+      <button class="btn btn-primary" (click)="toggleComplete.emit(index)">{{ task?.completed ? 'Mark Incomplete' : 'Mark Complete' }}</button>
+      <button class="btn btn-danger" (click)="deleteTask.emit(index)">Delete</button>
+    </div>
+  </div>
