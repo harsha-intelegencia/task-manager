@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.0.
 
+Task Manager is a angular application which is built to manage everyday tasks by creating, reading, updating & deleting them.
+This is developed following angular coding standards and utilising the latest features as well.
+To retain tasks data on page refresh they are stored in localstorage.
+
 # Prerequisites
 1. Node js version 20.13.1 -  [Node js installation](https://nodejs.org/en/download/package-manager)
 2. Angular version 18.0.2 -  Run `npm install -g @angular/cli`  [Angular installation docs](https://angular.dev/)
